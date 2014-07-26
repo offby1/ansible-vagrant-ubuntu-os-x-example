@@ -3,7 +3,10 @@
   sudo: yes
   tasks:
   - name: install needed Ubuntu .debs
-    apt: pkg={{ item }} state=present
+    apt: >-
+      pkg={{ item }}
+      state=present
+      update_cache=yes
     with_items:
       - unattended-upgrades
       - git
